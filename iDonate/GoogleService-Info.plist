@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1051480289604-aj7kgg5jemculugappt75o26gkn9kuel.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1051480289604-aj7kgg5jemculugappt75o26gkn9kuel</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBVnCZZQKouBivbzKaYkxvu0bXSGLUNqyc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1051480289604</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>pqy.lo.iDonate</string>
+	<key>PROJECT_ID</key>
+	<string>idonate-1805f</string>
+	<key>STORAGE_BUCKET</key>
+	<string>idonate-1805f.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1051480289604:ios:37abbef0c456c381692711</string>
+	<key>DATABASE_URL</key>
+	<string>https://idonate-1805f.firebaseio.com</string>
+</dict>
+</plist>
