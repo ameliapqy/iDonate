@@ -147,7 +147,6 @@
                                 </constraints>
                                 <state key="normal" title="NEXT"/>
                                 <connections>
-                                    <action selector="recordSupply" destination="MsE-EE-P8y" eventType="touchUpInside" id="Eb5-YO-8R2"/>
                                     <segue destination="n3r-hk-awO" kind="show" id="GWt-kN-frH"/>
                                 </connections>
                             </button>
@@ -232,7 +231,7 @@
                                     <outlet property="delegate" destination="n3r-hk-awO" id="tbc-tK-IdS"/>
                                 </connections>
                             </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi Donor, you currently need 10 masks." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBW-yq-qPe">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to iDonate :) Click on pins for detail" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBW-yq-qPe">
                                 <rect key="frame" x="0.0" y="88" width="414" height="70"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <constraints>
@@ -254,6 +253,7 @@
                     <navigationItem key="navigationItem" id="1YD-nI-Ye0"/>
                     <connections>
                         <outlet property="mapView" destination="S4S-hI-cGD" id="zUC-TX-Kad"/>
+                        <outlet property="statusLabel" destination="zBW-yq-qPe" id="npI-HQ-tBl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z67-xa-Jd9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
