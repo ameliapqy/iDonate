@@ -8,13 +8,16 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 class DetailViewController: UIViewController {
     @IBOutlet weak var userTypeField: UISegmentedControl!
-    @IBOutlet weak var dropDown: UIPickerView!
     @IBOutlet var amountField: UITextField!
     @IBOutlet var typeField: UITextField!
     @IBOutlet var nextButton: UIButton!
+    
+    var ref: DatabaseReference!
+    var refHandle: DatabaseHandle!
     
     var list = ["Donor", "Seeker"]
 

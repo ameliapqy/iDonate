@@ -7,5 +7,8 @@ target 'iDonate' do
 
   # Pods for iDonate
   pod “Firebase/Analytics”
+pod 'Firebase/Database'
+pod 'Firebase/Auth'
+pod 'Firebase/Firestore'
 
 end

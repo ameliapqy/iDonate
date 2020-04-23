@@ -1,0 +1,56 @@
+{
+    "User": [
+        {   
+            "lat": 39.953,
+            "long": -75.178,
+            "uid": "0",      
+            "type": "seeker",
+            "supplyType": "mask",
+            "supplyNumber": "1",
+            "tel": "6786467288"
+        },
+    	{   
+    		"lat": 39.953,
+    		"long": -75.178,
+            "uid": "1",      
+            "type": "donor",
+            "supplyType": "mask",
+            "supplyNumber": "200",
+            "tel": "6786467288"
+    	},
+        {
+            "lat": 39.956,
+            "long": -75.190,
+            "uid": "2",        
+            "type": "donor",
+            "supplyType": "toilet paper",
+            "supplyNumber": "1",
+            "tel": "6786467280"
+        },
+        {
+            "lat": 39.955,
+            "long": -75.186,
+            "uid": "3",      
+            "type": "seeker",
+            "supplyType": "mask",
+            "supplyNumber": "1",
+            "tel": "6786467281"        },
+        {
+            "lat": 39.955,
+            "long": -75.197,
+            "uid": "4",      
+            "type": "seeker",
+            "supplyType": "toilet paper",
+            "supplyNumber": "1",
+            "tel": "6786467282"
+        },
+        {
+            "lat": 39.9515,
+            "long": -75.200,
+            "uid": "5",      
+            "supplyType": "hand sanitizer",
+            "supplyNumber": "1",
+            "tel": "6786467283"
+        }
+    ]
+}

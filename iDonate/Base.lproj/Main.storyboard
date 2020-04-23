@@ -57,6 +57,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="SIGN IN"/>
                                 <connections>
+                                    <action selector="signInRecord" destination="BYZ-38-t0r" eventType="touchUpInside" id="KGw-Js-Kho"/>
                                     <segue destination="MsE-EE-P8y" kind="show" id="wRX-aX-pyu"/>
                                 </connections>
                             </button>
@@ -66,18 +67,36 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="nq5-Fg-SQz"/>
                                 </constraints>
-                                <state key="normal" title="SIGN UP"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="signUpRecord" destination="BYZ-38-t0r" eventType="touchUpInside" id="AJf-pp-Dwk"/>
+                                    <segue destination="MsE-EE-P8y" kind="show" id="wEq-jf-xAX"/>
+                                </connections>
                             </button>
+                            <textField opaque="NO" alpha="0.89999997615814209" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="User Name(for new user)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="05g-ba-mfp">
+                                <rect key="frame" x="50" y="530" width="314" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="WhV-ez-N0P"/>
+                                    <constraint firstAttribute="height" constant="50" id="iuc-3H-kRw"/>
+                                </constraints>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Gu5-Aa-qJf" firstAttribute="top" secondItem="S3M-sd-zpE" secondAttribute="bottom" constant="5" id="08m-ab-Wgn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ejj-Tv-Oit" secondAttribute="trailing" constant="50" id="0pK-rP-2JG"/>
+                            <constraint firstItem="05g-ba-mfp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="3G5-5f-tdL"/>
                             <constraint firstItem="ECg-sk-XYL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="3pj-0a-de4"/>
                             <constraint firstItem="rH5-Oa-6Zl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7RN-Dp-yCf"/>
                             <constraint firstItem="rH5-Oa-6Zl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8Et-Vc-6RV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kB6-7t-8g0" secondAttribute="trailing" constant="50" id="9Kt-bg-FmD"/>
+                            <constraint firstItem="05g-ba-mfp" firstAttribute="top" secondItem="mgM-VG-n3b" secondAttribute="bottom" constant="30" id="Jne-FI-d0T"/>
                             <constraint firstItem="kB6-7t-8g0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="LDR-kK-rof"/>
+                            <constraint firstItem="kB6-7t-8g0" firstAttribute="top" secondItem="05g-ba-mfp" secondAttribute="bottom" constant="30" id="RyY-JN-pUP"/>
                             <constraint firstItem="mgM-VG-n3b" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="TYz-ip-ckd"/>
                             <constraint firstItem="S3M-sd-zpE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="ZYh-Pu-ZVl"/>
                             <constraint firstItem="rH5-Oa-6Zl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="cGU-it-rA3"/>
@@ -89,6 +108,7 @@
                             <constraint firstItem="S3M-sd-zpE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="q6U-ot-FCh"/>
                             <constraint firstItem="ejj-Tv-Oit" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="qwy-du-6Xa"/>
                             <constraint firstAttribute="bottom" secondItem="rH5-Oa-6Zl" secondAttribute="bottom" id="rLR-9U-1w0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="05g-ba-mfp" secondAttribute="trailing" constant="50" id="sEj-Dk-9LE"/>
                             <constraint firstItem="ECg-sk-XYL" firstAttribute="top" secondItem="Gu5-Aa-qJf" secondAttribute="bottom" constant="60" id="u0R-FG-NAn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mgM-VG-n3b" secondAttribute="trailing" constant="50" id="unU-HS-y8Y"/>
                             <constraint firstItem="ejj-Tv-Oit" firstAttribute="top" secondItem="kB6-7t-8g0" secondAttribute="bottom" constant="30" id="w0E-OY-MUO"/>
@@ -102,6 +122,7 @@
                         <outlet property="signInButton" destination="kB6-7t-8g0" id="eOe-xJ-4jt"/>
                         <outlet property="signUpButton" destination="ejj-Tv-Oit" id="PvI-j4-mqV"/>
                         <outlet property="userField" destination="ECg-sk-XYL" id="rAV-P1-xIv"/>
+                        <outlet property="userNameField" destination="05g-ba-mfp" id="Wdr-0G-Y2C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -233,6 +254,21 @@
             </objects>
             <point key="canvasLocation" x="2619" y="75"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="r2T-PJ-3uR">
+            <objects>
+                <viewController id="3Jk-1g-CtZ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="d6B-cN-eGE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="dsV-Vf-5wJ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XNU-Dx-uz2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3386" y="75"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="HUu-jq-qtS">
             <objects>
@@ -255,4 +291,7 @@
     <resources>
         <image name="bkg" width="2000" height="3000"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="wEq-jf-xAX"/>
+    </inferredMetricsTieBreakers>
 </document>
