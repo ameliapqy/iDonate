@@ -1,56 +1,64 @@
-{
-    "User": [
-        {   
-            "lat": 39.953,
-            "long": -75.178,
-            "uid": "0",      
-            "type": "seeker",
-            "supplyType": "mask",
-            "supplyNumber": "1",
-            "tel": "6786467288"
-        },
-    	{   
-    		"lat": 39.953,
-    		"long": -75.178,
-            "uid": "1",      
-            "type": "donor",
-            "supplyType": "mask",
-            "supplyNumber": "200",
-            "tel": "6786467288"
-    	},
-        {
-            "lat": 39.956,
-            "long": -75.190,
-            "uid": "2",        
-            "type": "donor",
-            "supplyType": "toilet paper",
-            "supplyNumber": "1",
-            "tel": "6786467280"
-        },
-        {
-            "lat": 39.955,
-            "long": -75.186,
-            "uid": "3",      
-            "type": "seeker",
-            "supplyType": "mask",
-            "supplyNumber": "1",
-            "tel": "6786467281"        },
-        {
-            "lat": 39.955,
-            "long": -75.197,
-            "uid": "4",      
-            "type": "seeker",
-            "supplyType": "toilet paper",
-            "supplyNumber": "1",
-            "tel": "6786467282"
-        },
-        {
-            "lat": 39.9515,
-            "long": -75.200,
-            "uid": "5",      
-            "supplyType": "hand sanitizer",
-            "supplyNumber": "1",
-            "tel": "6786467283"
-        }
-    ]
-}
+[ {
+  "lat" : 39.9,
+  "long" : -75.7,
+  "name" : "Llama",
+  "supplyNumber" : 20,
+  "supplyType" : "other",
+  "tel" : "",
+  "type" : "seeker",
+  "uid" : 0
+}, {
+  "lat" : 39.953,
+  "long" : -75.178,
+  "name" : "pqy",
+  "supplyNumber" : 200,
+  "supplyType" : "mask",
+  "tel" : 6786467288,
+  "type" : "donor",
+  "uid" : 1
+}, {
+  "lat" : 39.956,
+  "long" : -75.19,
+  "name" : "Dominic",
+  "supplyNumber" : 15,
+  "supplyType" : "toilet paper",
+  "tel" : 6786467280,
+  "type" : "donor",
+  "uid" : 2
+}, {
+  "lat" : 39.955,
+  "long" : -75.186,
+  "name" : "Kaiying",
+  "supplyNumber" : 10,
+  "supplyType" : "mask",
+  "tel" : 6786467281,
+  "type" : "seeker",
+  "uid" : 3
+}, {
+  "lat" : 39.955,
+  "long" : -75.197,
+  "name" : "no one",
+  "supplyNumber" : 2,
+  "supplyType" : "toilet paper",
+  "tel" : 6786467282,
+  "type" : "seeker",
+  "uid" : 4
+}, {
+  "lat" : 39.9515,
+  "long" : -75.2,
+  "name" : "anonymous",
+  "supplyNumber" : 1,
+  "supplyType" : "hand sanitizer",
+  "tel" : 6786467283,
+  "type" : "seeker",
+  "uid" : 5
+}, {
+  "lat" : 39.89,
+  "long" : -74.9,
+  "name" : "yee",
+  "supplyNumber" : 20,
+  "supplyType" : "mask",
+  "tel" : 12345,
+  "type" : "None",
+  "uid" : 6
+} ]

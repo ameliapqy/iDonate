@@ -39,11 +39,14 @@ class MapViewController: UIViewController{
                         let uid = currUser["uid"] as? Int,
                         let supplyNumber = currUser["supplyNumber"] as? Int,
                         let supplyType = currUser["supplyType"] as? String,
-                        let tel = currUser["tel"] as? Int{
+                        let userType = currUser["type"] as? String,
+                        let tel = currUser["tel"] as? Int,
+                        let name = currUser["name"] as? String{
                         //2. Decode the array of dictionaries into an array of EggAnnotations
                         let coord = CLLocationCoordinate2D(latitude: lat, longitude: long)
-                        let user:PeopleAnnotation = PeopleAnnotation(coordinate: coord, id: uid, supplyNumber: supplyNumber, supplyType: supplyType, tel: tel)
+                        let user:PeopleAnnotation = PeopleAnnotation(coordinate: coord, id: uid, supplyNumber: supplyNumber, supplyType: supplyType, tel: tel, type: userType, name: name)
                         myUsers.append(user)
+                        print("user\(uid) appended!")
                     } else {
                         print("decoding failed!")
                     }
@@ -76,7 +79,7 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         let identifier = "PeopleAnnotationIdentifier"
-        guard let peopleAnnotation = annotation as? PeopleAnnotation else { return nil }
+        guard let currAnno = annotation as? PeopleAnnotation else { return nil }
         let annotationView: MKAnnotationView?
         //Try to dequeue an Annotation view with the identifier
         //   - If successful, just update the annotation
@@ -89,17 +92,18 @@ extension MapViewController: MKMapViewDelegate {
         }
         //2. Configure the callout view
         if let annotationView = annotationView {
-            if(peopleAnnotation.supplyType == "toilet paper") {
+            if(currAnno.supplyType == "toilet paper") {
             annotationView.image = UIImage(named: "paper") as UIImage?
-            } else if(peopleAnnotation.supplyType == "syringe") {
+            } else if(currAnno.supplyType == "syringe") {
             annotationView.image = UIImage(named: "syringe") as UIImage?
-            } else if(peopleAnnotation.supplyType == "mask") {
+            } else if(currAnno.supplyType == "mask") {
             annotationView.image = UIImage(named: "mask") as UIImage?
             } else {
             annotationView.image = UIImage(named: "user") as UIImage?
             }
+            
             annotationView.canShowCallout = true
-            let label = getCalloutLabel(with: peopleAnnotation.id)
+            let label = getCalloutLabel(name: currAnno.name, userType: currAnno.userType, supplyType: currAnno.supplyType, amount: currAnno.supplyNumber)
             annotationView.detailCalloutAccessoryView = label
             let button = getCalloutButton()
             annotationView.rightCalloutAccessoryView = button
@@ -112,7 +116,7 @@ extension MapViewController: MKMapViewDelegate {
                  calloutAccessoryControlTapped control: UIControl) {
         
         if let button = view.rightCalloutAccessoryView as? UIButton {
-            if let peopleAnnotation = view.annotation as? PeopleAnnotation {
+            if let currAnnotation = view.annotation as? PeopleAnnotation {
                 
                 // TODO:
                 //1.Toggle state of the egg annotation
@@ -126,9 +130,13 @@ extension MapViewController: MKMapViewDelegate {
     
     
     // This function should not require modification
-    private func getCalloutLabel(with id: Int) -> UILabel {
+    private func getCalloutLabel(name: String, userType: String, supplyType: String, amount: Int) -> UILabel {
         let label = UILabel()
-        label.text = "User \(id)"
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 0
+        label.text = "\(name): \(userType)\n#\(supplyType): \(amount)"
+        
+        
         return label
     }
     
