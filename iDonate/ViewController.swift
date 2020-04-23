@@ -39,7 +39,6 @@ class ViewController: UIViewController {
         if let tel = Int(userField.text!),
             let name = nameField.text {
             self.ref.child("User").child(String(userCount)).setValue(["lat": 39.955, "long":  -75.197,"tel":tel, "name":name,"supplyNumber":0, "supplyType":"none", "type":"self", "uid":userCount])
-            print("new user added!")
         }
     }
 }

@@ -34,8 +34,8 @@ class MapViewController: UIViewController{
         refHandle = ref.child("User").observe(DataEventType.value, with: {
             (snapshot) in
             //remove all existing users from the map
-            let all = self.mapView.annotations
-            self.mapView.removeAnnotations(all)
+            //let all = self.mapView.annotations
+            //self.mapView.removeAnnotations(all)
             //Decode the 'snapshot' (Firebase data) into an array of NSDictionary objects
             if let users = snapshot.value as? [NSDictionary] {
                 var myUsers:[PeopleAnnotation] = [PeopleAnnotation]()
@@ -57,7 +57,10 @@ class MapViewController: UIViewController{
                     }
                 }
                 DispatchQueue.main.async {
+                    let all = self.mapView.annotations
+                    self.mapView.removeAnnotations(all)
                     self.mapView.addAnnotations(myUsers)
+                    self.updateLabel()
                 }
             }
         })
@@ -154,8 +157,8 @@ extension MapViewController: MKMapViewDelegate {
                 
                 ref.child("User").child(String(currId)).updateChildValues(["supplyNumber": self.supplyAmount])
                 ref.child("User").child(String(target.id)).updateChildValues(["supplyNumber": target.supplyNumber])
-                self.updateLabel()
-                print("currently have: \(self.supplyAmount)" )
+                //self.updateLabel()
+                print("I currently have: \(self.supplyAmount)" )
                 print("after if target have: \(target.supplyNumber)" )
             }
         }
@@ -166,9 +169,9 @@ extension MapViewController: MKMapViewDelegate {
         //label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 3
         if(userType == "donor") {
-            label.text = "\(name)(\(userType))\nhave \(amount) \(supplyType) to donate. \ntel: \(tel)"
+            label.text = "\(name)(\(userType))\nhas \(amount) \(supplyType) to donate. \ntel: \(tel)"
         } else {
-            label.text = "\(name)(\(userType))\nneed \(amount) \(supplyType). \ntel: \(tel)"
+            label.text = "\(name)(\(userType))\nneeds \(amount) \(supplyType). \ntel: \(tel)"
         }
         return label
     }
