@@ -68,14 +68,21 @@ class MapViewController: UIViewController{
     
     func updateLabel() {
         //set status label
-        if(userType == "seeker") {
+        if(supplyType == "none") {
+            statusLabel.text = "Hi, you are currently a viewer, please go back and enter your information."
+        }
+        else if(userType == "seeker") {
             if(supplyAmount == 0) {
                 statusLabel.text = "Congrats! You find all the supplies you need!"
             } else {
             statusLabel.text = "Hi \(userType), you currently need \(supplyAmount)  \(supplyType). Good luck!"
             }
         } else if(userType == "donor"){
+            if(supplyAmount == 0) {
+            statusLabel.text = "You've donated all your supplies!"
+                       } else {
             statusLabel.text = "Hi \(userType), you currently have \(supplyAmount)  \(supplyType) to donate. Thanks for helping :)"
+            }
         } else {
             statusLabel.text = "Hi, you are currently a viewer, please go back and enter your information."
         }
@@ -103,8 +110,11 @@ extension MapViewController: MKMapViewDelegate {
         
         let identifier = "PeopleAnnotationIdentifier"
         guard let currAnno = annotation as? PeopleAnnotation else { return nil }
-        let annotationView: MKAnnotationView?
         
+        if  (((userType == "donor" && currAnno.userType == "seeker") ||
+        (userType == "seeker" && currAnno.userType == "donor")) ||
+            (currAnno.id == currId)){
+            let annotationView: MKAnnotationView?
         if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) {
             annotationView = dequeuedView
             annotationView?.annotation = annotation
@@ -133,6 +143,8 @@ extension MapViewController: MKMapViewDelegate {
             annotationView.detailCalloutAccessoryView = label
         }
         return annotationView
+      }
+        return nil
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,

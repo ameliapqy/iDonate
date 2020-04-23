@@ -36,9 +36,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func signUpRecord() {
+        //generate coordinates
+        let currLat = Double.random(in:39.938 ..< 39.965)
+        let currLong = Double.random(in:-75.2 ..< -75.184)
         if let tel = Int(userField.text!),
             let name = nameField.text {
-            self.ref.child("User").child(String(userCount)).setValue(["lat": 39.955, "long":  -75.197,"tel":tel, "name":name,"supplyNumber":0, "supplyType":"none", "type":"self", "uid":userCount])
+            self.ref.child("User").child(String(userCount)).setValue(["lat": currLat, "long":  currLong,"tel":tel, "name":name,"supplyNumber":0, "supplyType":"none", "type":"self", "uid":userCount])
         }
     }
 }
