@@ -30,7 +30,6 @@ class ViewController: UIViewController {
         refHandle = ref.child("User").observe(DataEventType.value, with: {(snapshot) in
             if let users = snapshot.value as? [NSDictionary] {
                 self.userCount = users.count;
-                print("id count： \(self.userCount)")
             }
         })
 

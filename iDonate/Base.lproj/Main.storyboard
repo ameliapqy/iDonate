@@ -232,8 +232,23 @@
                                     <outlet property="delegate" destination="n3r-hk-awO" id="tbc-tK-IdS"/>
                                 </connections>
                             </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi Donor, you currently need 10 masks." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBW-yq-qPe">
+                                <rect key="frame" x="0.0" y="88" width="414" height="70"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="eDP-9u-Ya0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="uNR-Im-jpI" firstAttribute="trailing" secondItem="zBW-yq-qPe" secondAttribute="trailing" id="6qT-82-YeT"/>
+                            <constraint firstItem="zBW-yq-qPe" firstAttribute="leading" secondItem="uNR-Im-jpI" secondAttribute="leading" id="G64-gI-AwE"/>
+                            <constraint firstItem="zBW-yq-qPe" firstAttribute="top" secondItem="uNR-Im-jpI" secondAttribute="top" id="mjm-5J-NAR"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="uNR-Im-jpI"/>
                     </view>
                     <navigationItem key="navigationItem" id="1YD-nI-Ye0"/>
@@ -244,21 +259,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z67-xa-Jd9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2619" y="75"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="r2T-PJ-3uR">
-            <objects>
-                <viewController id="3Jk-1g-CtZ" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="d6B-cN-eGE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="dsV-Vf-5wJ"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XNU-Dx-uz2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3386" y="75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HUu-jq-qtS">

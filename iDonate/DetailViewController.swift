@@ -22,6 +22,8 @@ class DetailViewController: UIViewController {
     var currId:Int = 0
     
     var currType:String = "donor"
+    var currSupplyType:String = "none"
+    var currSupplyAmount:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,8 +64,18 @@ class DetailViewController: UIViewController {
         if let amount = Int(amountField.text!),
             let supplyType = typeField.text {
             ref.child("User").child(String(self.currId)).updateChildValues(["type": self.currType, "supplyNumber": amount, "supplyType": supplyType])
+            currSupplyType = supplyType
+            currSupplyAmount = amount
             print("supply updated!")
         }
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let controller = segue.destination as? MapViewController {
+                controller.supplyType = currSupplyType
+                controller.supplyAmount = currSupplyAmount
+                controller.userType = currType
+                controller.currId = currId
+        }
+    }
 }

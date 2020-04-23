@@ -17,10 +17,17 @@ class MapViewController: UIViewController{
     @IBOutlet var mapView: MKMapView!
     var ref: DatabaseReference!
     var refHandle: DatabaseHandle!
+    var userType: String = ""
+    var supplyType: String = "none"
+    var supplyAmount: Int = 0
+    var currId: Int = 0
+    
+    @IBOutlet var statusLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        updateLabel()
         mapView.delegate = self
         //set up Firebase ref
         ref = Database.database().reference();
@@ -56,6 +63,17 @@ class MapViewController: UIViewController{
                 }
             }
         })
+    }
+    
+    func updateLabel() {
+        //set status label
+        if(userType == "") {
+            statusLabel.text = "Hi, you are currently a viewer, please go back and enter your information."
+        } else if(userType == "seeker") {
+            statusLabel.text = "Hi \(userType),you currently need \(supplyAmount) of \(supplyType). Good luck!"
+        } else {
+            statusLabel.text = "Hi \(userType),you currently have \(supplyAmount) of \(supplyType) to donate. Thanks for helping :)"
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -103,7 +121,7 @@ extension MapViewController: MKMapViewDelegate {
             }
             
             annotationView.canShowCallout = true
-            let label = getCalloutLabel(name: currAnno.name, userType: currAnno.userType, supplyType: currAnno.supplyType, amount: currAnno.supplyNumber)
+            let label = getCalloutLabel(name: currAnno.name, userType: currAnno.userType, supplyType: currAnno.supplyType, amount: currAnno.supplyNumber, tel: currAnno.tel)
             annotationView.detailCalloutAccessoryView = label
             let button = getCalloutButton()
             annotationView.rightCalloutAccessoryView = button
@@ -116,13 +134,32 @@ extension MapViewController: MKMapViewDelegate {
                  calloutAccessoryControlTapped control: UIControl) {
         
         if let button = view.rightCalloutAccessoryView as? UIButton {
-            if let currAnnotation = view.annotation as? PeopleAnnotation {
+            if let target = view.annotation as? PeopleAnnotation {
                 
-                // TODO:
-                //1.Toggle state of the egg annotation
-                //2.Update the button with the correct title
-                //3.Update the firebase database with the new `isCollected` value
                 view.rightCalloutAccessoryView = button
+                if(userType == "donor" && target.userType == "seeker") {
+                    if(supplyAmount > target.supplyNumber) {
+                    supplyAmount = supplyAmount - target.supplyNumber
+                        target.supplyNumber = 0
+                    } else {
+                    supplyAmount = 0
+                        target.supplyNumber = target.supplyNumber - supplyAmount
+                    }
+                } else if (userType == "seeker" && target.userType == "donor") {
+                    if(supplyAmount < target.supplyNumber) {
+                    supplyAmount = supplyAmount - target.supplyNumber
+                        target.supplyNumber = 0
+                    } else {
+                    supplyAmount = 0
+                        target.supplyNumber = target.supplyNumber - supplyAmount
+                    }
+                } else {
+                    button.setTitle("unavaliable", for: .disabled)
+                }
+                
+                ref.child("User").child(String(currId)).updateChildValues(["supplyNumber": supplyAmount])
+                ref.child("User").child(String(target.id)).updateChildValues(["supplyNumber": target.supplyNumber])
+                updateLabel()
             }
         }
     }
@@ -130,23 +167,32 @@ extension MapViewController: MKMapViewDelegate {
     
     
     // This function should not require modification
-    private func getCalloutLabel(name: String, userType: String, supplyType: String, amount: Int) -> UILabel {
+    private func getCalloutLabel(name: String, userType: String, supplyType: String, amount: Int, tel: Int) -> UILabel {
         let label = UILabel()
-        label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 0
-        label.text = "\(name): \(userType)\n#\(supplyType): \(amount)"
-        
-        
+        //label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 3
+        if(userType == "donor") {
+        label.text = "\(name): \(userType)\nhave \(amount) \(supplyType) to donate. \ntel: \(tel)"
+        } else {
+            label.text = "\(name): \(userType)\nneed \(amount) \(supplyType). \ntel: \(tel)"
+        }
         return label
     }
     
     // This function should not require modification
     private func getCalloutButton() -> UIButton {
         let button = UIButton(type: .system)
-        button.setTitle("Contact", for: .normal)
+        if(userType == "donor") {
+        button.setTitle("Donate", for: .normal)
+        } else if(userType == "seeker") {
+        button.setTitle("Get", for: .normal)
+        } else {
+            button.setTitle("unavaliable", for: .disabled)
+        }
         button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 10.0
         button.tintColor = .white
-        button.frame = CGRect.init(x: 0, y: 0, width: 100, height: 40)
+        button.frame = CGRect.init(x: 0, y: 0, width: 100, height: 50)
         return button
     }
 }
