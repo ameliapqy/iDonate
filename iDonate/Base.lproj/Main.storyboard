@@ -145,7 +145,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="cC4-bi-WQ9"/>
                                 </constraints>
-                                <state key="normal" title="NEXT"/>
+                                <state key="normal" title="CONFIRM"/>
                                 <connections>
                                     <segue destination="n3r-hk-awO" kind="show" id="GWt-kN-frH"/>
                                 </connections>
