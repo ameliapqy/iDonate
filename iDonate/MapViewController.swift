@@ -124,10 +124,10 @@ extension MapViewController: MKMapViewDelegate {
             }
             
             annotationView.canShowCallout = true
-            let label = getCalloutLabel(name: currAnno.name, userType: currAnno.userType, supplyType: currAnno.supplyType, amount: currAnno.supplyNumber, tel: currAnno.tel)
-            annotationView.detailCalloutAccessoryView = label
             let button = getCalloutButton()
             annotationView.rightCalloutAccessoryView = button
+            let label = getCalloutLabel(name: currAnno.name, userType: currAnno.userType, supplyType: currAnno.supplyType, amount: currAnno.supplyNumber, tel: currAnno.tel)
+            annotationView.detailCalloutAccessoryView = label
         }
         return annotationView
     }
