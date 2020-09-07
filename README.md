@@ -2,8 +2,6 @@
 
 ![](main.jpg)
 
-pennkey: pqy
-
 ## Description
 
 In special circumstances, there are always a shortages of things: shortage of toilet papers, masks, hand sanitizers... And those who have extra and those who are in need. iDonate aims to help with the supply exchange process by allowing people to search donor/seekers within his/her area, so they could donate/ get supplies.
